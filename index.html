@@ -4,6 +4,7 @@
     <head>
         <link rel="stylesheet" href="css/devices.min.css" type="text/css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-route.min.js"></script>
@@ -23,7 +24,7 @@
         <div class="camera"></div>
         <div class="sensor"></div>
         <div class="speaker"></div>
-        <div class="screen">
+        <div class="screen" style="z-index: 10">
             <div id="appScreen" ng-view>
                 <div ng-view></div>
             </div>

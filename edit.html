@@ -1,3 +1,91 @@
-<div>
-    Edit
+<div class="" ng-controller="EditController">
+
+    <div id="editContainer">
+        <div id="tools">
+            <div id="toolbar">
+                <div class="toolbar-icon" ng-click="setTool('text')">
+                    <i class="fa fa-font fa-2x" aria-hidden="true"></i>
+                </div>
+                <div class="toolbar-icon" ng-click="setTool('sound')">
+                    <i class="fa fa-volume-up  fa-2x" aria-hidden="true"></i>
+                </div>
+                <div class="toolbar-icon" ng-click="setTool('color')">
+                    <i class="fa fa-circle  fa-2x" aria-hidden="true" ng-class="color"></i>
+                </div>
+                <div class="toolbar-icon" ng-click="setTool('flag')">
+                    <i class="fa fa-flag fa-2x" aria-hidden="true"></i>
+                </div>
+                <div class="toolbar-icon" ng-click="setTool('anim')">
+                    <i class="fa fa-hourglass fa-2x" aria-hidden="true"></i>
+                </div>
+                <div class="toolbar-divider"></div>
+
+                
+                <div class="toolbar-icon end" ng-click="setTool('delete')">
+                    <i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div id="extended-toolbar">
+                <div id="text-edit" ng-show="isSet('text')">
+                    <form>
+                        <label><span class="text-label">Line 1</span> <input type="text" class="text-input" ng-model="text.line1"></label>
+                        <label><span class="text-label">Line 2</span> <input type="text" class="text-input" ng-model="text.line2"></label>
+                    </form>
+                </div>
+                <div id="sound-edit" ng-show="tool === 'sound'">
+                    <div class="sound">
+                        Record
+                    </div>
+
+                    <div ng-repeat="sound in sounds" class="sound">
+                        {{sound.name}}
+                    </div>
+                </div>
+                <div id="color-edit" ng-show="tool === 'color'">
+                    <div class="color-icon" ng-click="setColor('white')">
+                        <i class="fa fa-circle white fa-2x" aria-hidden="true"></i>
+                    </div>                    
+                    <div class="color-icon" ng-click="setColor('magenta')">
+                        <i class="fa fa-circle magenta fa-2x" aria-hidden="true"></i>
+                    </div>                    
+                    <div class="color-icon" ng-click="setColor('orange')">
+                        <i class="fa fa-circle orange fa-2x" aria-hidden="true" ng-c></i>
+                    </div>                    
+                    <div class="color-icon" ng-click="setColor('cyan')">
+                        <i class="fa fa-circle cyan fa-2x" aria-hidden="true"></i>
+                    </div>                    
+                    <div class="color-icon" ng-click="setColor('limegreen')">
+                        <i class="fa fa-circle limegreen fa-2x" aria-hidden="true"></i>
+                    </div>                    
+                    <div class="color-icon" ng-click="setColor('yellow')">
+                        <i class="fa fa-circle yellow  fa-2x" aria-hidden="true"></i>
+                    </div>
+                    
+                </div>
+                <div id="flag-edit" ng-show="tool === 'flag'">
+                    Flag
+                </div>
+                <div id="anim-edit" ng-show="tool === 'anim'">
+                    Anim
+                </div>
+                <div id="delete" ng-show="tool === 'delete'">
+                    Delete
+                </div>
+            </div>
+        </div>
+
+        <div id="preview" ng-click="setTool('')">
+            <div id="preview-text">
+                <div id="two-line" ng-show="isSingleLine()">
+                    <div class="line" ng-class="color">
+                        {{text.line1}}
+                    </div>
+                    <div class="line" ng-class="color">
+                        {{text.line2}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{color}}
 </div>
