@@ -108,6 +108,10 @@
     font-size: 5em;
 }
 
+.line {
+    font-weight: 1000;
+}
+
 .text-input {
     width: 140px;
 }
@@ -172,6 +176,36 @@
     margin-left: 5px;
     height: 1px;
     background-color: white;
+}
+
+#play-button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    z-index: 11;
+}
+
+#edit-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 20px;
+    z-index: 11;
+}
+
+#right-corner-tools {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 20px;
+    z-index: 11;
+    display: flex;
+    flex-direction: row;
+}
+
+.icon {
+    padding: 10px;
 }
 
 .magenta {

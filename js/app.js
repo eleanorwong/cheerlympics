@@ -22,10 +22,14 @@ cheerlympics.controller('EditController', ['$scope',
     function EditController($scope) {
         $scope.tool = '';
 
-        $scope.line1 = "";
-        $scope.line2 = "";
+        $scope.text = {};
+
+        $scope.text.line1 = '';
+        $scope.text.line2 = '';
 
         $scope.color = "white";
+
+        $scope.editing = true;
 
         $scope.sounds = [{name: "Applause"}, {name: "Horn"}, { name: "Cheering"}];
 
@@ -41,17 +45,27 @@ cheerlympics.controller('EditController', ['$scope',
             return $scope.tool === toolName;
         }
 
+        $scope.setColor = function(color) {
+            $scope.color = color;
+            $scope.tool = '';
+        }
+
+        $scope.isEdit = function() {
+            return $scope.editing;
+        }
+
+        $scope.togglePlay = function() {
+            console.log($scope.editing);
+            $scope.editing = !$scope.editing;
+        }
+
+        
         $scope.isSingleLine = function() {
-            if($scope.text.line1 === "" && $scope.text.line2 === "") {
+            if(($scope.text.line1 === "" || typeof($scope.text.line1) === undefined) && $scope.text.line2 === "") {
                 return false;
             }
 
             return true;
-        }
-
-        $scope.setColor = function(color) {
-            $scope.color = color;
-            $scope.tool = '';
         }
     }
 ]);
