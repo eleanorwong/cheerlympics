@@ -92,6 +92,39 @@
     border-radius: 30px;
 }
 
+#flag-edit {
+    width: 450px;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.15);
+    box-sizing: border-box;
+    border-radius: 30px;
+    overflow: auto;
+    height: 340px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.flag-tool {
+    font-size: 2em;
+}
+
+.flag {
+    width: 100px;
+    padding: 10px;
+}
+
+.flag-icon-class {
+    padding: 5px;
+    font-size: 2em;
+}
+
+.flag-name {
+    font-size: 1em;
+}
+
 .color-icon {
     padding: 10px;
 }

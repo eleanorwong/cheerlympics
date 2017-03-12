@@ -18,8 +18,8 @@ cheerlympics.controller('CheerlympicsController',
     }
 );
 
-cheerlympics.controller('EditController', ['$scope',
-    function EditController($scope) {
+cheerlympics.controller('EditController', ['$scope', '$http',
+    function EditController($scope, $http) {
         $scope.tool = '';
 
         $scope.text = {};
@@ -31,7 +31,14 @@ cheerlympics.controller('EditController', ['$scope',
 
         $scope.editing = true;
 
+        $scope.flag = "";
+
         $scope.sounds = [{name: "Applause"}, {name: "Horn"}, { name: "Cheering"}];
+
+        $http.get('js/countries.json')
+            .then(function(res){
+                $scope.countries = res.data.countries.country;                
+            });
 
         $scope.setTool = function(newTool) {
             if($scope.tool === newTool) {
@@ -50,6 +57,11 @@ cheerlympics.controller('EditController', ['$scope',
             $scope.tool = '';
         }
 
+        $scope.setFlag = function(flag) {
+            $scope.flag = flag;
+            $scope.tool = '';
+        }
+
         $scope.isEdit = function() {
             return $scope.editing;
         }
@@ -59,7 +71,10 @@ cheerlympics.controller('EditController', ['$scope',
             $scope.editing = !$scope.editing;
         }
 
-        
+        $scope.getFlagClass = function(code) {
+            return "flag-icon-"+code.toLowerCase();
+        }
+
         $scope.isSingleLine = function() {
             if(($scope.text.line1 === "" || typeof($scope.text.line1) === undefined) && $scope.text.line2 === "") {
                 return false;

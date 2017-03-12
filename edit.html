@@ -13,7 +13,8 @@
                     <i class="fa fa-circle  fa-2x" aria-hidden="true" ng-class="color"></i>
                 </div>
                 <div class="toolbar-icon" ng-click="setTool('flag')">
-                    <i class="fa fa-flag fa-2x" aria-hidden="true"></i>
+                    <i class="fa fa-flag fa-2x" aria-hidden="true" ng-if="flag === ''"></i>
+                    <div class="flag-tool flag-icon flag-icon-squared" ng-class="getFlagClass(flag)" ng-if="flag !== ''"></div>
                 </div>
                 <div class="toolbar-icon" ng-click="setTool('anim')">
                     <i class="fa fa-hourglass fa-2x" aria-hidden="true"></i>
@@ -63,7 +64,12 @@
                     
                 </div>
                 <div id="flag-edit" ng-show="tool === 'flag'">
-                    Flag
+                    <div class="flag" ng-repeat="country in countries | orderBy: 'countryName'">
+                        <div class="flag-icon flag-icon-class" ng-class="getFlagClass(country.countryCode)" ng-click="setFlag(country.countryCode)"></div>
+                        <div class="flag-name">
+                            {{country.countryName}}
+                        </div>
+                    </div>
                 </div>
                 <div id="anim-edit" ng-show="tool === 'anim'">
                     Anim
