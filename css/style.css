@@ -30,7 +30,10 @@
 }
 
 #toolbar {
-    background-color: transparent;
+    background-color: rgba(255,255,255,0.3);
+    box-sizing: border-box;
+    border-radius: 30px;
+    
     box-sizing: padding-box;
     width: 75px;
     height: 100%;
@@ -64,9 +67,10 @@
 #text-edit {
     padding: 30px;
     background-color: rgba(255,255,255,0.15);
-    width: 300px;
     box-sizing: border-box;
     border-radius: 30px;
+    
+    width: 300px;
 }
 
 #sound-edit {
@@ -167,22 +171,42 @@
     overflow: hidden;
 }
 
-.marquee {
+.animated {
+    height: 100%;
+    display: block;
+}
+
+/*.marquee {
     overflow: hidden;
+    margin: 0 auto;
+    white-space: nowrap;
+    box-sizing: border-box;
+    position: relative;
+} */
+
+
+
+#animated-content {
+    width: 100%;
+    height: 375px;
+    display: flex;
+    /*animation: marquee 15s linear infinite;*/
 }
 
-.marquee div {
-  overflow: hidden;
-  position: absolute;
-  height: 100%;
-  width: 250%;
-  display: block;
-  /*animation: marquee 5s linear infinite;*/
+#content-text {
+    background-color: black;
+    position:absolute;
+    width: 667px;
+    height: 375px;
+    font-size: 5em;
+    text-align: center;
+    top: 0;
 }
 
-@keyframes marquee {
-  0% { right: 0; }
-  100% { right: -100%; }
+#content-flag {
+    width: 500px;
+    height: 375px;
+    position: absolute;
 }
 
 #preview #line1 {
@@ -232,7 +256,7 @@
     right: 0;
     top: 0;
     padding: 20px;
-    z-index: 11;
+    z-index: 18;
     display: flex;
     flex-direction: row;
 }
@@ -263,4 +287,58 @@
 
 .white {
     color: white;
+}
+
+#marquee-animation {
+    width: 667px;
+    height: 375px;
+    position: absolute;
+    background-color: rgba(255,0,0, 0.5);
+    overflow: hidden;
+}
+
+#marquee-content {
+    position: relative;
+    overflow: hidden;
+    width: 667px;
+    height: 375px;
+}
+
+#marquee-text {
+    display: block;
+    height: 375px;
+}
+
+.blink {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+.marquee {
+    animation: marquee 5s linear infinite;
+}
+
+.marquee div {
+    animation: marquee 5s linear infinite;
+    position: absolute;
+    overflow: hidden;
+    display: block;
+    width: 200%;
+    height: 30px;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes marquee {
+  0% { left: 0; }
+  100% { left: -100%; }
 }

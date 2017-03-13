@@ -80,17 +80,25 @@
             </div>
         </div>
 
-        <div id="preview" ng-click="setTool('')">
-            <div id="preview-text">
-                <div id="two-line" ng-show="isSingleLine()">
-                    <div class="line" ng-class="color">
-                        {{text.line1}}
-                    </div>
-                    <div class="line" ng-class="color">
-                        {{text.line2}}
-                    </div>
+        <div id="marquee-animation" ng-click="setTool('')">
+            <div class="marquee-content" class="marquee">
+                <div id="marquee-text" class="marquee">
+                    {{text.line1}}
+                    {{text.line2}}
+                </div>
+
+                <div id="marquee-flag" ng-class="getFlagClass(flag)" class="flag-icon flag-icon-background">
+
                 </div>
             </div>
+        </div>
+
+        <div id="blink_animation" ng-click="setTool('')">
+
+        </div>
+
+        <div id="no_animation" ng-click="setTool('')">
+
         </div>
 
         <div id="play-button" ng-show="isEdit()">
@@ -112,3 +120,11 @@
     </div>
     {{color}}
 </div>
+
+
+<script>
+    $(function() {
+
+    $('.marqueee').marquee();
+    })
+</script>
