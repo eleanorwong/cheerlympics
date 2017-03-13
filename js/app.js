@@ -26,10 +26,12 @@ cheerlympics.controller('EditController', ['$scope', '$http',
     function EditController($scope, $http) {
         $scope.tool = '';
 
+        $scope.help = false;
+
         $scope.text = {};
 
-        $scope.text.line1 = '';
-        $scope.text.line2 = '';
+        $scope.text.line1 = 'Line 1';
+        $scope.text.line2 = 'Line 2';
 
         $scope.color = "white";
 
@@ -37,7 +39,11 @@ cheerlympics.controller('EditController', ['$scope', '$http',
 
         $scope.flag = "";
 
-        $scope.sounds = [{name: "Applause"}, {name: "Horn"}, { name: "Cheering"}];
+        $scope.anim = "";
+
+        $scope.sound = "None";
+
+        $scope.sounds = [{name: "None"}, {name: "Applause"}, {name: "Horn"}, { name: "Cheering"}];
 
         $http.get('js/countries.json')
             .then(function(res){
@@ -52,8 +58,24 @@ cheerlympics.controller('EditController', ['$scope', '$http',
             }
         }
 
+        $scope.toggleHelp = function() {
+            $scope.setTool('');
+            $scope.help = !$scope.help;
+        }
+
         $scope.isSet = function(toolName) {
             return $scope.tool === toolName;
+        }
+
+        $scope.isSoundSelected = function(sound) {
+            if($scope.sound === sound) {
+                return "sound-selected"
+            }
+        }
+
+        $scope.setSound = function(sound) {
+            $scope.sound = sound;
+            $scope.tool = '';
         }
 
         $scope.setColor = function(color) {
@@ -63,6 +85,11 @@ cheerlympics.controller('EditController', ['$scope', '$http',
 
         $scope.setFlag = function(flag) {
             $scope.flag = flag;
+            $scope.tool = '';
+        }
+
+        $scope.setAnim = function(anim) {
+            $scope.anim = anim;
             $scope.tool = '';
         }
 
@@ -77,6 +104,10 @@ cheerlympics.controller('EditController', ['$scope', '$http',
 
         $scope.getFlagClass = function(code) {
             return "flag-icon-"+code.toLowerCase();
+        }
+
+        $scope.getFlagAndColorClass = function() {
+            return $scope.getFlagClass($scope.flag) + " " + $scope.color
         }
 
         $scope.isSingleLine = function() {

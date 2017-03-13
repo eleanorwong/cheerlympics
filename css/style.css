@@ -70,16 +70,26 @@
 
 #text-edit {
     padding: 30px;
-    background-color: rgba(255,255,255,0.15);
+    background-color: rgba(0,0,0,0.8);
     box-sizing: border-box;
     border-radius: 30px;
     
     width: 300px;
 }
 
+#delete {
+    padding: 30px;
+    background-color: rgba(0,0,0,0.8);
+    box-sizing: border-box;
+    border-radius: 30px;
+    
+    width: 300px;
+}
+
+
 #sound-edit {
     padding: 30px;
-    background-color: rgba(255,255,255,0.15);
+    background-color: rgba(0,0,0,0.9);
     width: 530px;
     box-sizing: border-box;
     border-radius: 30px;
@@ -95,15 +105,23 @@
 #color-edit {
     width: 80px;
     padding: 10px;
-        background-color: rgba(255,255,255,0.15);
+    background-color: rgba(0,0,0,0.8);
             box-sizing: border-box;
+    border-radius: 30px;
+}
+
+#anim-edit {
+    width: 80px;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.8);
+    box-sizing: border-box;
     border-radius: 30px;
 }
 
 #flag-edit {
     width: 450px;
     padding: 10px;
-    background-color: rgba(255,255,255,0.15);
+    background-color: rgba(0,0,0,0.8);
     box-sizing: border-box;
     border-radius: 30px;
     overflow: auto;
@@ -137,11 +155,19 @@
     padding: 10px;
 }
 
+.anim-icon {
+    padding: 10px;
+}
+
 .sound {
     flex: 0.25;
     background-color: rgba(255,255,255,0.2);
     padding: 20px;
     margin: 10px;
+}
+
+.sound-selected {
+    background-color: rgba(255,255,255, 0.7);
 }
 
 #two-line {
@@ -173,6 +199,16 @@
     box-sizing: border-box;
     vertical-align: center;
     overflow: hidden;
+}
+
+#help {
+    position: absolute;
+    background-image: url('../img/help.png');
+    height: 100%;
+    width: 100%;
+    z-index: 21;
+    overflow: hidden;
+    background-size: contain;
 }
 
 .animated {
@@ -297,7 +333,15 @@
     width: 667px;
     height: 375px;
     position: absolute;
-    background-color: rgba(255,0,0, 0.5);
+    background-color: rgba(255,0,0, 0.3);
+    overflow: hidden;
+}
+
+#blink-animation {
+    width: 667px;
+    height: 375px;
+    position: absolute;
+    background-color: rgba(0,0,255, 0.3);
     overflow: hidden;
 }
 
@@ -311,6 +355,29 @@
 #marquee-text {
     display: block;
     height: 375px;
+}
+
+#no-animation {
+    position: absolute;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    box-sizing: border-box;
+    vertical-align: center;
+    overflow: hidden;
+}
+
+.no-anim-content {
+    height: 375px;
+    width: 100%;
+    padding: 30px;
+    font-size: 5em;
+    font-weight: bold;
+}
+
+.no-anim-content span {
+    background-color: rgba(0,0,0,0.5);
 }
 
 .blink {
