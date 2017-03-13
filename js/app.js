@@ -6,6 +6,10 @@ cheerlympics.config(function($routeProvider) {
             templateUrl: "home.html",
             controller: "CheerlympicsController"
         })
+        .when("/home2", {
+            templateUrl: "home2.html",
+            controller: "CheerlympicsController"
+        })
         .when("/edit", {
             templateUrl: "edit.html",
             controller: "EditController"
