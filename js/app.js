@@ -76,6 +76,34 @@ cheerlympics.controller('EditController', ['$scope', '$http',
         $scope.setSound = function(sound) {
             $scope.sound = sound;
             $scope.tool = '';
+                                           
+            if(sound == "Applause") {
+                var audio = new Audio('audio/applause.mp3');
+                audio.play();
+            }
+            else if(sound == "Horn") {
+                var audio = new Audio('audio/horn.mp3');
+                audio.play();
+            }
+            else if(sound == "Cheering") {
+                var audio = new Audio('audio/cheering.mp3');
+                audio.play();
+            }
+        }
+                                           
+        $scope.playSound = function() {
+            if($scope.sound == "Applause") {
+                var audio = new Audio('audio/applause.mp3');
+                audio.play();
+            }
+            else if($scope.sound == "Horn") {
+                var audio = new Audio('audio/horn.mp3');
+                audio.play();
+            }
+            else if($scope.sound == "Cheering") {
+                var audio = new Audio('audio/cheering.mp3');
+                audio.play();
+            }
         }
 
         $scope.setColor = function(color) {
