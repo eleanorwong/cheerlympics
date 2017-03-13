@@ -11,9 +11,13 @@
 }
 
 #appScreen {
-    background-color: black;
+    background-color: white;
     height: 100%;
     z-index: 50;
+}
+
+#homeText {
+    color: black;
 }
 
 #editContainer {
