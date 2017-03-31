@@ -78,7 +78,7 @@ cheerlympics.controller('EditController', ['$scope', '$http',
             $scope.tool = '';
                                            
             if(sound == "Applause") {
-                var audio = new Audio('audio/applause.mp3');
+                var audio = new Audio('audio/Applause.mp3');
                 audio.play();
             }
             else if(sound == "Horn") {
